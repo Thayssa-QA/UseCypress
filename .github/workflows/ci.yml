@@ -8,8 +8,8 @@ jobs:
         uses: actions/checkout@v4
       # Install npm dependencies, cache them correctly
       # and run all Cypress tests
-      - name: Run Cypress with custom script
-        run: npm run teste
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
 
         # Salvar reports do Mochawesome
       - uses: actions/upload-artifact@v4
