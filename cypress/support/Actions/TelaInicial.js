@@ -16,6 +16,7 @@ validarAcessoATelaInicial() {
     cy.wrap(li).should('not.be.empty');
   });
     cy.get(ElementosTelaInicial.areaAcessibilidade).should('be.visible');
+    cy.screenshot('Tela Inicial');
 },
 
 aceitarCookies() {
@@ -39,12 +40,13 @@ acessarLicenEIpvaPeloCard(){
     cy.contains(ElementosTelaInicial.linkCalendarioIpva, 'Confira aqui o calendário completo.').click();
     cy.url().should('include', 'licenciamento-ipva');
     cy.title().should('eq', 'Licenciamento IPVA - DETRAN-PE');
-
+    cy.screenshot('Licenciamento e IPVA');
 },
 
 acessarAreadeAcessibilidade(){
     cy.get(ElementosTelaInicial.areaAcessibilidade).click();
     cy.url().should('include', 'acessibilidade');
     cy.title().should('eq', 'Acessibilidade - DETRAN-PE');
+    cy.screenshot('Acessibilidade');
 },
 }
