@@ -1,15 +1,19 @@
 const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
+  reporter: "cypress-mochawesome-reporter",
   e2e: {
     setupNodeEvents(on, config) {
+      on('task',{
+        log(message) {
+          console.log(message)
+          return null
+        }
+      });
+      require("cypress-mochawesome-reporter/plugin")(on);
     },
-      reporter: "mochawesome",
-      reporterOptions: {
-      reportDir: "cypress/reports",
-      overwrite: false,
-      html: true,
-      json: true
-    }
+    viewportHeight: 800,
+    viewportWidth: 1280,
+    screenshotOnRunFailure: true,
   },
 });
